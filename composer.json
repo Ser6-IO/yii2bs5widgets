@@ -1,0 +1,20 @@
+{
+    "name": "ser6-io/yii2-bs5-widgets",
+    "description": "Yii2 Bootstrap5 custom Widgets",
+    "type": "yii2-extension",
+    "require": {
+        "yiisoft/yii2-bootstrap5": "2.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ser6io\\yii2bs5widgets\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ser6-IO",
+            "email": "100387766+Ser6-IO@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
