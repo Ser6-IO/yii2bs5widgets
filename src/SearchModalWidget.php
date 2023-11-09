@@ -1,9 +1,8 @@
 <?php
 
-namespace ser6io\yii2bs5widgets\searchmodalwidget;
+namespace ser6io\yii2bs5widgets;
 
-use ser6io\yii2bs5widgets\searchmodalwidget\assets\SearchModalWidgetAsset;
-
+use ser6io\yii2bs5widgets\assets\SearchModalAsset;
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -15,7 +14,11 @@ class SearchModalWidget extends Widget
     public $label;
     public $searchUrl;
     public $inputId;
+    public $inputName;
     public $createUrl;
+    public $relation;
+
+    public $form;
 
     public function init()
     {
@@ -32,20 +35,31 @@ class SearchModalWidget extends Widget
             $this->inputId = Html::getInputId($this->model, $this->attribute);
         }
 
-        $_model = $this->model->address->attributes ?? null;
+        if (!$this->inputName) {
+            $this->inputName = Html::getInputName($this->model, $this->attribute);
+        }
+
+        if (!$this->relation) {
+            //split attribute name by '_'
+            $this->relation = explode('_', $this->attribute)[0];
+        }
+
+        $_model = $this->model->{$this->relation}->attributes ?? null;
         if ($_model) {
-            $_model['organization']['nickname'] = $this->model->address->organization->nickname ?? null;
+            $_model['organization']['nickname'] = $this->model->{$this->relation}->organization->nickname ?? null;
         }
         
         $this->view->registerJsVar("{$this->id}_search_widget_data", Json::encode([
             'hiddenInputId' => $this->inputId,
+            'hiddenInputName' => $this->inputName,
             'searchUrl' => $this->searchUrl,
             'model' => $_model,
             'widgetId' => $this->id,
+            'formId' => $this->form->id,
             'label' => $this->label,
         ]));
         
-        SearchModalWidgetAsset::register($this->view);
+        SearchModalAsset::register($this->view);
 
         $this->view->registerJs(
             "initSearchWidget({$this->id}_search_widget_data);",
@@ -57,13 +71,14 @@ class SearchModalWidget extends Widget
 
     public function run()
     {
-        return $this->render('search-card', [
+        return $this->render('search-modal', [
             'model' => $this->model,
             'attribute' => $this->attribute,
             'label' => $this->label,
             'searchUrl' => $this->searchUrl,
             'inputId' => $this->inputId,
             'createUrl' => $this->createUrl,
+            'form' => $this->form,
         ]);   
     }
 }

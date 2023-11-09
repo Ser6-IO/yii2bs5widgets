@@ -1,7 +1,12 @@
-<?= \yii\helpers\Html::activeHiddenInput($model, $attribute) ?>
+<div class="form-floating mt-3 field-<?= $inputId /* 'required' */ ?>">
+    
+    <div id="<?= $inputId ?>-card" class="card p-3"></div>
 
-<div id="<?= $inputId ?>-card" class="card p-3 mt-3"></div>
-
+    <?= \yii\helpers\Html::activeHiddenInput($model, $attribute) ?>
+    <div class="invalid-feedback"></div>
+    
+</div>
+    
  <!-- Modal -->
  <div class="modal fade" id="<?= $inputId ?>-modal" tabindex="-1">
     <div class="modal-dialog">

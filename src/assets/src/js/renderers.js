@@ -54,3 +54,10 @@ function renderAddressItem(dataItem, label) {
 
     return item_container_div;
 }
+
+function renderContactItemView(nodeId, data) {
+    const node = document.getElementById(nodeId);
+    const dataJson = JSON.parse(data);
+    node.innerHTML = '';
+    node.appendChild(renderAddressItem(dataJson.model, dataJson.label));
+}
