@@ -38,7 +38,7 @@ class ToolBarWidget extends \yii\base\Widget
                         case 'create':
                             $_caption = '<i class="bi bi-plus-circle"></i>';
                             $_url = ["{$route}create"];
-                            if ($this->id != null) $url[$this->idParam] = $this->id;
+                            if ($this->id != null) $_url[$this->idParam] = $this->id;
                             $_options = ['class' => 'btn btn-outline-success', 'data-bs-toggle' => 'tooltip', 'title' => 'New'];
                             break;
                         case 'update':
