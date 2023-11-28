@@ -10,6 +10,8 @@ class ActionColumn extends \yii\grid\ActionColumn
     //public $contentOptions = ['style' => 'white-space: nowrap;', 'scope' => 'col'];
     
     public $headerOptions = ['class' => 'col-sm-auto'];
+
+    public $template = '{view}';
     
     /**
      * Initializes the default button rendering callbacks.
