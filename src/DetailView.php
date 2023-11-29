@@ -5,6 +5,7 @@ namespace ser6io\yii2bs5widgets;
 use yii\bootstrap5\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
+use yii\base\InvalidConfigException;
 
 class DetailView extends \yii\widgets\DetailView
 {
@@ -65,13 +66,15 @@ class DetailView extends \yii\widgets\DetailView
     {
 
         if (is_string($attribute)) {
-            if (!preg_match('/^([^:]+)(:(\w*))?(:(.*))?$/', $attribute, $matches)) {
+            if (!preg_match('/^([^:]+)(:(\w*))?(:(\w*))?(:(.*))?$/', $attribute, $matches)) {
                 throw new InvalidConfigException('The attribute must be specified in the format of "attribute", "attribute:format" or "attribute:format:label"');
             }
+        //    throw new InvalidConfigException(implode(', ', $matches));
             $attribute = [
                 'attribute' => $matches[1],
                 'format' => isset($matches[3]) ? $matches[3] : 'text',
                 'label' => isset($matches[5]) ? $matches[5] : null,
+                'col-class' => isset($matches[7]) ? $matches[7] : null,
             ];
         }
 
