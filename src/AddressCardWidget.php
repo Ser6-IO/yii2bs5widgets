@@ -25,7 +25,7 @@ class AddressCardWidget extends Widget
 
         $_model = $this->model->attributes ?? null;
         if ($_model) {
-            $_model['organization']['nickname'] = $this->model->organization->nickname ?? null;
+            $_model['contact']['name'] = $this->model->contact->name ?? null;
         }
 
         $address_types = \ser6io\yii2contacts\models\Address::ADDRESS_TYPE;

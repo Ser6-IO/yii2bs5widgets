@@ -25,7 +25,7 @@ function renderAddressItem(dataItem, label) {
 
     name = document.createElement('h5');
     name.classList.add('mb-1');
-    name.innerHTML = dataItem.organization.nickname;
+    name.innerHTML = dataItem.contact.name;
 
     type = document.createElement('span');
     type.classList.add('badge', 'rounded-pill', 'text-bg-info', 'align-self-center');

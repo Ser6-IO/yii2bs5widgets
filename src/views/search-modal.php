@@ -1,8 +1,13 @@
+<?php
+use yii\helpers\Html;
+use yii\helpers\Url;
+?>
+
 <div class="form-floating mt-3 field-<?= $inputId /* 'required' */ ?>">
     
     <div id="<?= $inputId ?>-card" class="card p-3"></div>
 
-    <?= \yii\helpers\Html::activeHiddenInput($model, $attribute) ?>
+    <?= Html::activeHiddenInput($model, $attribute) ?>
     <div class="invalid-feedback"></div>
     
 </div>
@@ -19,7 +24,7 @@
                 <div id="<?= $inputId ?>-search-results" class="list-group"></div>    
             </div>
             <div class="modal-footer">
-                <small class="me-auto">If the <?= $label ?> is not found, you can <a href="<?= $createUrl ?>">create it</a></small>.
+                <small class="me-auto">If the <?= $label ?> is not found, you can <a href="<?= Url::to($createUrl) ?>">create it</a></small>.
             </div>
         </div>
     </div>

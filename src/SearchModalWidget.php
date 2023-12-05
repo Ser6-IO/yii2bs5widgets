@@ -46,7 +46,7 @@ class SearchModalWidget extends Widget
 
         $_model = $this->model->{$this->relation}->attributes ?? null;
         if ($_model) {
-            $_model['organization']['nickname'] = $this->model->{$this->relation}->organization->nickname ?? null;
+            $_model['contact']['name'] = $this->model->{$this->relation}->contact->name ?? null;
         }
         
         $this->view->registerJsVar("{$this->id}_search_widget_data", Json::encode([

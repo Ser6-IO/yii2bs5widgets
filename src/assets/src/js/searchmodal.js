@@ -32,7 +32,7 @@ function renderResultItem(dataItem, label) {
     search_result_item.classList.add('list-group-item', 'list-group-item-action', 'search-result-item');
     search_result_item.href = '#';
     search_result_item.setAttribute('data-hidden_input', dataItem.id);
-    search_result_item.setAttribute('data-organization_nickname', dataItem.organization.nickname);
+    search_result_item.setAttribute('data-contact_name', dataItem.contact.name);
     
     item_container_div = renderAddressItem(dataItem, label);
 
