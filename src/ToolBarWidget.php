@@ -140,8 +140,10 @@ class ToolBarWidget extends \yii\base\Widget
                                 $_confirm = 'Are you sure you want to delete this item?';
                             }
 
+                            $_params = $group['config']['soft-delete']['params'] ?? ['id' => $this->id];
+
                             $_caption = '<i class="bi bi-trash"></i>';
-                            $_url = [$_u, 'id' => $this->id];
+                            $_url = [$_u] + $_params;
                             $_options = [
                                 'class' => $_class,
                                 'data-bs-toggle' => 'tooltip', 
