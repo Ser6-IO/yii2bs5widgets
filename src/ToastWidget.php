@@ -111,7 +111,11 @@ class ToastWidget extends Widget
                 "</div> ";
         echo $toast;
 
-        $this->registerJs("$id = new bootstrap.Toast(document.getElementById('{$id}_toast'))");
+        $this->view->registerJs(
+            "$id = new bootstrap.Toast(document.getElementById('{$id}_toast'))",
+            \yii\web\View::POS_READY,
+            "$id-toast-init"
+        );
     }
 }
 
