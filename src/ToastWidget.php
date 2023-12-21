@@ -101,6 +101,13 @@ class ToastWidget extends Widget
     private function renderToast($type, $message, $id=null, $sessionToastClass=null)
     {
         if ($id != null) {
+
+            $this->view->registerJs(
+                "$id = new bootstrap.Toast(document.getElementById('{$id}_toast'))",
+                \yii\web\View::POS_READY,
+                "$id-toast-init"
+            );
+
             $id = "id='{$id}_toast' ";
         }
         $toast = "<div $id class=' $sessionToastClass border " . $this->alertBorderTypes[$type] . " " . $this->alertTypes[$type] . " toast align-items-center' role='alert' aria-live='assertive' aria-atomic='true'>".
@@ -110,12 +117,6 @@ class ToastWidget extends Widget
                     "</div>".
                 "</div> ";
         echo $toast;
-
-        $this->view->registerJs(
-            "$id = new bootstrap.Toast(document.getElementById('{$id}_toast'))",
-            \yii\web\View::POS_READY,
-            "$id-toast-init"
-        );
     }
 }
 
