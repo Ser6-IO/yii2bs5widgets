@@ -33,6 +33,6 @@ class GridView extends \yii\grid\GridView
     public $footerRowOptions = [];
     public $rowOptions = [];
         
-    public $options = ['style'=>'overflow: auto;']; // word-wrap: break-word;
+    public $options = ['style'=>'overflow: auto;', 'class' => 'bs5-grid-view']; // word-wrap: break-word;
 
 }

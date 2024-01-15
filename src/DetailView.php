@@ -11,8 +11,9 @@ class DetailView extends \yii\widgets\DetailView
 {
     public $options = ['class' => 'detail-view', 'tag' => 'div'];
 
-    public $template = "<div class='card p-2 mb-2'><small class='text-muted'><span{captionOptions}>{label}</span></small><div{contentOptions}>{value}&nbsp;</div></div>";
-
+    public $template = "<div class='border-bottom p-2 mb-2'><small class='text-muted'><span{captionOptions}>{label}</span></small><div{contentOptions}>{value}&nbsp;</div></div>";
+    //card
+    
     public $rows;
 
     public $defaultColClass;
