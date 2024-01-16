@@ -49,7 +49,7 @@ class DetailView extends \yii\widgets\DetailView
                     $colClass = $attribute['col-class'] ?? $defaultColClass;    
                     $cols[] = "<div class='$colClass'>" . $this->renderAttribute($attribute, $i++) . "</div>";
                 }
-                $rows[] = Html::tag('div', implode("\n", $cols), ['class' => 'row']);
+                $rows[] = Html::tag('div', implode("\n", $cols), ['class' => 'row justify-content-around']);
                     
             }
             
