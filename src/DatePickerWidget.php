@@ -16,7 +16,6 @@ class DatePickerWidget extends Widget
     public $range_attribute = 'range';
     public $from_attribute = 'from';
     public $to_attribute = 'to';
-    public $formId;
 
     public function run()
     {
@@ -31,7 +30,7 @@ class DatePickerWidget extends Widget
 
         $rangeArray = [];
         foreach ($this->range as $key => $range) {
-            $rangeArray[] = Html::tag('li', Html::a($range, '#', ['class' => 'dropdown-item', 'onclick' => "document.getElementById('$rangeInputId').value = $key; document.getElementById('$this->formId').submit();"]));
+            $rangeArray[] = Html::tag('li', Html::a($range, '#', ['class' => 'dropdown-item', 'onclick' => "document.getElementById('$rangeInputId').value = $key; $(this).closest('form').submit();"]));
         }
         $rangeArray[] = Html::tag('li', Html::tag('hr', '', ['class' => 'dropdown-divider']));
         $rangeArray[] = Html::tag('li', Html::a('Custom range', '#', ['class' => 'dropdown-item']));

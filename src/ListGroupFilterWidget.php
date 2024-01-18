@@ -28,7 +28,7 @@ class ListGroupFilterWidget extends Widget
             "<a href='$link' class='list-group-item list-group-item-action border-bottom-0'>
                 <div class='d-flex justify-content-between align-items-center'>
                     <div class='text-nowrap'>$row[type]</div>
-                    <span class='badge bg-primary rounded-pill'>$row[qty]</span>
+                    <span class='badge bg-info rounded-pill'>$row[qty]</span>
                 </div>
                 <div class='progress mt-1' role='progressbar' style='height: 2px'>
                     <div class='progress-bar' style='width: $percent%'></div>
