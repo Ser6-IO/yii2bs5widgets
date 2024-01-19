@@ -36,7 +36,7 @@ class DatePickerWidget extends Widget
         $rangeArray[] = Html::tag('li', Html::a('Custom range', '#', ['class' => 'dropdown-item']));
 
         $icon = "<i class='bi bi-$this->icon'></i>";
-        $button = Html::tag('button', "$icon " . $this->range[$this->model->{$this->range_attribute}], ['class' => "btn btn-outline-$this->color dropdown-toggle", 'type' => 'button', 'data-bs-toggle' => 'dropdown']);
+        $button = Html::tag('button', "$icon " . $this->range[$this->model->{$this->range_attribute}], ['class' => "btn btn-lg btn-outline-$this->color dropdown-toggle", 'type' => 'button', 'data-bs-toggle' => 'dropdown']);
         $ul = Html::tag('ul', implode('', $rangeArray), ['class' => 'dropdown-menu']);
 
         return Html::tag('div',"$button\n$ul", ['class' => 'dropdown']) . $rangeHiddenInput; // . $fromHiddenInput . $toHiddenInput;
