@@ -14,7 +14,7 @@ use yii\base\Widget;
 class CreatedByWidget extends Widget
 {
     public $model;
-    public $class = 'text-secondary';
+    public $class = 'text-secondary mb-0';
 
     public function run()
     {

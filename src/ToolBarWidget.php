@@ -96,6 +96,13 @@ class ToolBarWidget extends \yii\base\Widget
                                 Html::addCssClass($_options, 'disabled');
                             break;
 
+                        case 'view':
+
+                            $_url = $group['config']['view']['url'] ?? ['view', 'id' => $this->id];
+                            $_caption = '<i class="bi bi-eye"></i>';
+                            $_options = ['class' => 'btn btn-outline-primary', 'data-bs-toggle' => 'tooltip', 'title' => 'View'];
+                            break;
+
                         case 'roles':
                             
                             $_url = $group['config']['roles']['url'] ?? ['roles', 'id' => $this->id];
